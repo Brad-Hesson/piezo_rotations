@@ -1,0 +1,83 @@
+Size/Diameter,Cut Angle,Cut Axis,Grade,Thickness,Polishing,Flat,PN,Cost,Shear Constant
+2 Inch          ,        ,X-Cut   ,Optical grade       ,0.31mm      ,both side polished              ,                    ,POLN-110112     ,$52.00,8.07E-11
+1 Inch          ,        ,X-Cut   ,Optical grade       ,0.3mm       ,both side polished              ,                    ,POLN-16J002     ,$56.00,8.07E-11
+10.0mm ,41°     ,X-Cut   ,SAW grade           ,0.37mm      ,both side polished              ,no primary flat     ,PWLN-8BI462     ,$42.00,7.28E-11
+13.9mm ,41°     ,X-Cut   ,SAW grade           ,0.37mm      ,both side polished              ,no primary flat     ,PWLN-8CI462     ,$48.00,7.28E-11
+25X20mm         ,        ,Y-Cut   ,SAW grade           ,0.1mm       ,both side polished              ,                    ,PWLN-2R7522     ,$62.00,6.92E-11
+4 Inch          ,        ,Y-Cut   ,SAW grade           ,0.25mm      ,single side polished            ,                    ,PWLN-236131     ,$68.00,6.92E-11
+6 Inch          ,        ,Y-Cut   ,SAW grade           ,0.3mm       ,both side polished              ,                    ,PWLN-25J142     ,$350.00,6.92E-11
+25X25mm         ,128°    ,Y-Cut   ,SAW grade           ,0.15mm      ,both side polished              ,                    ,PWLN-4RH572     ,$50.00,7.36E-12
+2 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.25mm      ,double side polished            ,                    ,PWLN-416212     ,$56.00,7.36E-12
+3 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.25mm      ,both side polished              ,                    ,PWLN-426222     ,$82.00,7.36E-12
+6 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.3mm       ,both side polished              ,                    ,PWLN-45J242     ,$290.00,7.36E-12
+12.0X15.0mm     ,36°     ,Y-Cut   ,SAW grade           ,0.1mm       ,ground surfaces for both sides  ,                    ,PWLN-7R7663     ,$50.00,5.13E-12
+3 Inch          ,36°     ,Y-Cut   ,SAW grade           ,0.25mm      ,Both side polished              ,                    ,PWLN-726222     ,$92.00,5.13E-12
+3 Inch          ,41°     ,Y-Cut   ,SAW grade           ,0.175mm     ,Single side polished            ,                    ,PWLN-620221     ,$108.00,3.83E-12
+4.46mm in       ,        ,Z-Cut   ,Optical grade       ,0.05mm      ,both side polished              ,no primary flat     ,POLN-3A8462     ,$32.00,0.00E+00
+4.46mm in       ,        ,Z-Cut   ,Optical grade       ,0.10mm      ,both side polished              ,no primary flat     ,POLN-3A7462     ,$28.00,0.00E+00
+5mm in          ,        ,Z-Cut   ,Optical grade       ,0.17mm      ,both side polished              ,no primary flat     ,POLN-30A462     ,$25.00,0.00E+00
+2 Inch          ,        ,Z-Cut   ,Optical grade       ,0.25mm      ,both side polished              ,                    ,POLN-316312     ,$52.00,0.00E+00
+3mm in          ,        ,Z-Cut   ,Optical grade       ,0.3mm       ,both side polished              ,no primary flat     ,POLN-3FJ462     ,$20.00,0.00E+00
+5mm in          ,        ,Z-Cut   ,Optical grade       ,0.3mm       ,both side polished              ,no primary flat     ,POLN-30J462     ,$20.00,0.00E+00
+6 Inch          ,        ,Y-Cut   ,SAW grade           ,0.4mm       ,both side polished              ,                    ,PWLN-259142     ,$260.00,
+40.0X30.0mm     ,36°     ,Y-Cut   ,SAW grade           ,0.4mm       ,double side polished            ,                    ,PWLN-7R9652     ,$55.00,
+6 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.4mm       ,both side polished              ,                    ,PWLN-459242     ,$225.00,
+1 Inch          ,        ,X-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-161152     ,$40.00,
+2 Inch          ,        ,X-Cut   ,Optical grade       ,0.5mm       ,single side polished            ,                    ,POLN-111111     ,$45.00,
+3 Inch          ,        ,X-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-131122     ,$60.00,
+3 Inch          ,        ,X-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-121122     ,$92.00,
+4 Inch          ,        ,X-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-131132     ,$168.00,
+3 Inch          ,        ,Y-Cut   ,SAW grade           ,0.5mm       ,Single side polished            ,                    ,PWLN-221122     ,$48.00,
+4 Inch          ,        ,Y-Cut   ,SAW grade           ,0.5mm       ,Single side polished            ,                    ,PWLN-231131     ,$62.00,
+4 Inch          ,        ,Y-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-231132     ,$86.00,
+3 Inch          ,        ,Y-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-221122     ,$92.00,
+4 Inch          ,        ,Y-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-231132     ,$168.00,
+3 Inch          ,36°     ,Y-Cut   ,SAW grade           ,0.5mm       ,Single side polished            ,                    ,PWLN-721221     ,$48.00,
+3 Inch          ,36°     ,Y-Cut   ,SAW grade           ,0.5mm       ,Both side polished              ,                    ,PWLN-721222     ,$60.00,
+3 Inch          ,41°     ,Y-Cut   ,SAW grade           ,0.5mm       ,Single side polished            ,                    ,PWLN-621221     ,$48.00,
+4 Inch          ,41°     ,Y-Cut   ,SAW grade           ,0.5mm       ,single side polished            ,                    ,PWLN-631231     ,$66.00,
+4 Inch          ,41°     ,Y-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-631232     ,$82.00,
+3 Inch          ,64°     ,Y-Cut   ,SAW grade           ,0.5mm       ,Single side polished            ,                    ,PWLN-521221     ,$48.00,
+3 Inch          ,64°     ,Y-Cut   ,SAW grade           ,0.5mm       ,Double side polished            ,                    ,PWLN-521222     ,$60.00,
+4 Inch          ,64°     ,Y-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-531232     ,$86.00,
+2 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-411212     ,$40.00,
+3 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,Single side polished            ,                    ,PWLN-421221     ,$48.00,
+3 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,both side polished              ,                    ,PWLN-421222     ,$60.00,
+4 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,single side polished            ,                    ,PWLN-431231     ,$68.00,
+4 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,both side polished              ,                    ,PWLN-431232     ,$78.00,
+6 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,both side polished              ,                    ,PWLN-451242     ,$196.00,
+8 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,single side polished            ,                    ,PWLN-471241     ,$425.00,
+40X50mm         ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,both side polished              ,                    ,PWLN-4R1512     ,$58.00,
+10.0X100.0mm    ,128°    ,Y-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-4R1672     ,$65.00,
+3mm in          ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,no primary flat     ,POLN-3F1462     ,$20.00,
+5mm in          ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,no primary flat     ,POLN-301462     ,$20.00,
+21.5mm in       ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,no primary flat     ,POLN-391462     ,$42.00,
+2 Inch          ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-311312     ,$52.00,
+2 Inch          ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,single side polished            ,                    ,POLN-311311     ,$45.00,
+3 Inch          ,        ,Z-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-321322     ,$60.00,
+4 Inch          ,        ,Z-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-331332     ,$86.00,
+6 Inch          ,        ,Z-Cut   ,SAW grade           ,0.5mm       ,both side polished              ,                    ,PWLN-351342     ,$218.00,
+8 Inch          ,        ,Z-Cut   ,SAW grade           ,0.5mm       ,double side polished            ,                    ,PWLN-371342     ,$480.00,
+3 Inch          ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-321322     ,$92.00,
+4 Inch          ,        ,Z-Cut   ,Optical grade       ,0.5mm       ,both side polished              ,                    ,POLN-331232     ,$168.00,
+25.4X25.4mm     ,        ,Y-Cut   ,SAW grade           ,0.6mm       ,both side polished              ,                    ,PWLN-2RL612     ,$50.00,
+50.8X50.8mm     ,        ,Y-Cut   ,SAW grade           ,0.6mm       ,both side polished              ,                    ,PWLN-2RL622     ,$68.00,
+76.2X76.2mm     ,        ,Y-Cut   ,SAW grade           ,0.6mm       ,both side polished              ,                    ,PWLN-2RL632     ,$90.00,
+3 Inch          ,128°    ,Y-Cut   ,SAW grade           ,0.6mm       ,both side polished              ,                    ,PWLN-42L222     ,$72.00,
+8.0X25.0mm      ,128°    ,Y-Cut   ,SAW grade           ,0.6mm       ,double side polished            ,                    ,PWLN-4RL602     ,$30.00,
+9.0X25.0mm      ,128°    ,Y-Cut   ,SAW grade           ,0.6mm       ,double side polished            ,                    ,PWLN-4RL612     ,$30.00,
+3 Inch          ,        ,X-Cut   ,Optical grade       ,1.0mm       ,both side polished              ,                    ,POLN-125122     ,$138.00,
+25.4X76.2mm     ,        ,Y-Cut   ,SAW grade           ,1.0mm       ,Single side polished            ,                    ,PWLN-2R5531     ,$60.00,
+4 Inch          ,64°     ,Y-Cut   ,SAW grade           ,1.0mm       ,Single side polished            ,                    ,PWLN-535231     ,$90.00,
+40.0X40.0mm     ,64°     ,Y-Cut   ,SAW grade           ,1.0mm       ,Single side polished            ,                    ,PWLN-5R5541     ,$58.00,
+25.0X40.0mm     ,64°     ,Y-Cut   ,SAW grade           ,1.0mm       ,Single side polished            ,                    ,PWLN-5R5551     ,$50.00,
+2 Inch          ,128°    ,Y-Cut   ,SAW grade           ,1.0mm       ,double side polished            ,                    ,PWLN-415212     ,$45.00,
+3 Inch          ,128°    ,Y-Cut   ,SAW grade           ,1.0mm       ,both side polished              ,                    ,PWLN-425222     ,$75.00,
+4 Inch          ,128°    ,Y-Cut   ,SAW grade           ,1.0mm       ,single side polished            ,                    ,PWLN-435231     ,$90.00,
+10.0X67.0mm     ,128°    ,Y-Cut   ,SAW grade           ,1.0mm       ,double side polished            ,                    ,PWLN-4R5582     ,$56.00,
+5.0X67.0mm      ,128°    ,Y-Cut   ,SAW grade           ,1.0mm       ,double side polished            ,                    ,PWLN-4R5602     ,$52.00,
+3 Inch          ,        ,Z-Cut   ,SAW grade           ,1.0mm       ,double side polished            ,                    ,PWLN-325322     ,$75.00,
+60mm in         ,        ,Y-Cut   ,SAW grade           ,1.375mm     ,double side polished            ,                    ,PWLN-200002     ,$95.00,
+10.0X70.0mm     ,41°     ,Y-Cut   ,SAW grade           ,1.5mm       ,Single side polished            ,                    ,PWLN-6RG561     ,$45.00,
+4 Inch          ,128°    ,Y-Cut   ,SAW grade           ,2.0mm       ,both side polished              ,                    ,PWLN-43M232     ,$160.00,
+3 Inch          ,        ,X-Cut   ,Optical grade       ,4.0mm       ,both side polished              ,                    ,POLN-12E122     ,$368.00,
