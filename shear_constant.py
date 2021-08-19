@@ -5,29 +5,32 @@ from lib.lithium_niobate import d
 
 
 def main():
-    T = 0
-    t = T / 180 * np.pi
-    A = Az
-    dp = A(t) @ d @ np.transpose(N(A(t)))
-    print(f"{T}° X-Cut:")
-    print(f"       Shear: {np.sqrt(np.power(dp[0,4],2) + np.power(dp[0,5],2))}")
-    print(f"    Deform Y: {dp[0,1]}")
-    print(f"    Deform Z: {dp[0,2]}")
-    print()
-    A = Ax
-    dp = A(t) @ d @ np.transpose(N(A(t)))
-    print(f"{T}° Y-Cut:")
-    print(f"       Shear: {np.sqrt(np.power(dp[1,3],2) + np.power(dp[1,5],2))}")
-    print(f"    Deform X: {dp[1,0]}")
-    print(f"    Deform Z: {dp[1,2]}")
-    print()
-    A = Ay
-    dp = A(t) @ d @ np.transpose(N(A(t)))
-    print(f"{T}° Z-Cut:")
-    print(f"       Shear: {np.sqrt(np.power(dp[2,3],2) + np.power(dp[2,4],2))}")
-    print(f"    Deform X: {dp[2,0]}")
-    print(f"    Deform Y: {dp[2,1]}")
-    print()
+    axes = {"X": 0, "Y": 1, "Z": 2}
+    trans = {"X": Az, "Y": Ax, "Z": Ay}
+    cuts = [
+        ("X", 0),
+        ("Y", 0),
+        ("Y", 36),
+    ]
+    for cut in cuts:
+        T = cut[1]
+        t = T / 180 * np.pi
+        A = trans[cut[0]]
+        dp = A(t) @ d @ np.transpose(N(A(t)))
+        axis = axes[cut[0]]
+        other1 = (axis+1) % 3
+        other2 = (axis+2) % 3
+        shear = np.sqrt(
+            np.power(dp[axis, other1 + 3], 2) +
+            np.power(dp[axis, other2 + 3], 2)
+        )
+        print(f"{T}° {cut[0]}-Cut:")
+        print(f"     Shear Perp:  {shear}")
+        print(f"     Shear Parr:  {dp[axis, axis+3]}")
+        print(f"    Deform Perp:  {dp[axis,other1]}")
+        print(f"    Deform Perp:  {dp[axis,other2]}")
+        print(f"    Deform Parr:  {dp[axis,axis]}")
+        print()
 
 
 if __name__ == "__main__":
