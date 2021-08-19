@@ -28,14 +28,15 @@ def main():
             np.power(dp[axis, other1 + 3], 2) +
             np.power(dp[axis, other2 + 3], 2)
         )
-        long_perp1 = dp[axis, other1]
-        long_perp2 = dp[axis, other2]
+        long_perp = [dp[axis, other1], dp[axis, other2]]
+        long_perp_max = long_perp[np.argmax(np.abs(long_perp))]
+        long_perp_min = long_perp[np.argmin(np.abs(long_perp))]
         print(f"{T}° {cut[0]}-Cut:")
-        print(f"|    Shear Perp:  {shear}")
-        print(f"|    Shear Parr:  {dp[axis, axis+3]}")
-        print(f"| Long Max Perp:  {max(long_perp1, long_perp2)}")
-        print(f"| Long Min Perp:  {min(long_perp1, long_perp2)}")
-        print(f"|     Long Parr:  {dp[axis,axis]}")
+        print(f"|    Shear Perp:%8.2f pm/V" % (shear * 1e12))
+        print(f"|    Shear Parr:%8.2f pm/V" % (dp[axis, axis+3] * 1e12))
+        print(f"| Long Max Perp:%8.2f pm/V" % (long_perp_max * 1e12))
+        print(f"| Long Min Perp:%8.2f pm/V" % (long_perp_min * 1e12))
+        print(f"|     Long Parr:%8.2f pm/V" % (dp[axis, axis] * 1e12))
         print()
 
 
