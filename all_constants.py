@@ -2,8 +2,8 @@ import numpy as np
 from matplotlib import pyplot as plt
 import itertools as it
 
-from transformations import *
-from lithium_niobate import d
+from lib.transformations import *
+from lib.lithium_niobate import d
 
 
 def main():

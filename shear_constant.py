@@ -1,7 +1,7 @@
 import numpy as np
 
-from transformations import *
-from lithium_niobate import d
+from lib.transformations import *
+from lib.lithium_niobate import d
 
 
 def main():
