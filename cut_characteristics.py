@@ -6,6 +6,7 @@ from lib.lithium_niobate import d
 
 def main():
     axes = {"X": 0, "Y": 1, "Z": 2}
+    axes_inv = {v: k for k, v in axes.items()}
     trans = {"X": Az, "Y": Ax, "Z": Ay}
     cuts = [
         ("X", 0),
@@ -28,12 +29,14 @@ def main():
             np.power(dp[axis, other1 + 3], 2) +
             np.power(dp[axis, other2 + 3], 2)
         )
+        shear_angle = np.arctan(dp[axis, other1 + 3]/dp[axis, other2 + 3])/np.pi*180
         long_perp = [dp[axis, other1], dp[axis, other2]]
         long_perp_max = long_perp[np.argmax(np.abs(long_perp))]
         long_perp_min = long_perp[np.argmin(np.abs(long_perp))]
         print(f"{T}° {cut[0]}-Cut:")
         print(f"|    Shear Perp:%8.2f pm/V" % (shear * 1e12))
         print(f"|    Shear Parr:%8.2f pm/V" % (dp[axis, axis+3] * 1e12))
+        print(f"|   Shear Angle:%8.2f degrees from %s towards %s" % (shear_angle, axes_inv[other2], axes_inv[other1]))
         print(f"| Long Max Perp:%8.2f pm/V" % (long_perp_max * 1e12))
         print(f"| Long Min Perp:%8.2f pm/V" % (long_perp_min * 1e12))
         print(f"|     Long Parr:%8.2f pm/V" % (dp[axis, axis] * 1e12))
