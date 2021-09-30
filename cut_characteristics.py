@@ -14,8 +14,6 @@ def cut_characteristics(d_matrix, transform, axis):
     strain = np.array(strain, dtype=np.float64)
     shear_vec = strain[3:]
     long_parr = strain[axis]
-    print(strain[:3]*1e12)
-    print(strain[3:]*1e12)
     rotor = rotors[axis]
     def long_perp_rotor(x): return (N(rotor(x)) @ strain)[(axis-1) % 3]
     return (shear_vec, long_parr, long_perp_rotor)
@@ -37,7 +35,7 @@ def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
     long_perp_max = long_perp_rotor(long_perp_max_angle)
     long_perp_min = long_perp_rotor(long_perp_max_angle + np.pi/2)
 
-    return (long_perp_max, long_perp_min, long_perp_max_angle, long_parr, shear_parr, shear_perp, shear_perp_angle)
+    return (long_parr, long_perp_max, long_perp_min, long_perp_max_angle, shear_parr, shear_perp, shear_perp_angle)
 
 
 def main():
@@ -61,10 +59,10 @@ def main():
         (shear_vec,
          long_parr,
          long_perp_rotor) = cut_characteristics(d, rotor(angle), axis)
-        (long_perp_max,
+        (long_parr,
+         long_perp_max,
          long_perp_min,
          long_perp_angle,
-         long_parr,
          shear_parr,
          shear_perp,
          shear_perp_angle,) = cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor)
