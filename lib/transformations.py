@@ -26,3 +26,5 @@ def Ay(t):
 
 def Az(t):
     return np.array([[np.cos(t), np.sin(t), 0], [-np.sin(t), np.cos(t), 0], [0, 0, 1]], dtype=object)
+
+rotors = [Ax, Ay, Az]
