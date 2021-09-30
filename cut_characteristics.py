@@ -2,7 +2,6 @@ import numpy as np
 from matplotlib import pyplot as plt
 
 from lib.transformations import *
-from lib.lithium_niobate import d
 
 
 def cut_characteristics(d_matrix, transform, axis):
@@ -56,6 +55,8 @@ def main():
 
         print(f"%d° %s-Cut:" % (angle/np.pi*180, axis_name))
 
+        
+        from lib.lithium_niobate import d
         (shear_vec,
          long_parr,
          long_perp_rotor) = cut_characteristics(d, rotor(angle), axis)
