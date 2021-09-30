@@ -21,11 +21,7 @@ def cut_characteristics(transform, axis):
     return (shear_vec, long_parr, long_perp_rotor)
 
 
-def cut_params(axis, angle):
-    rotor = rotors[(axis-1) % 3]
-
-    (shear_vec, long_parr, long_perp_rotor) = cut_characteristics(rotor(angle), axis)
-
+def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
 
@@ -57,17 +53,21 @@ def main():
     ]
     for (axis_name, angle) in cuts:
         axis = axes_ind[axis_name]
+        rotor = rotors[(axis-1) % 3]
         angle *= np.pi/180
 
         print(f"%d° %s-Cut:" % (angle/np.pi*180, axis_name))
 
+        (shear_vec,
+         long_parr,
+         long_perp_rotor) = cut_characteristics(rotor(angle), axis)
         (long_perp_max,
          long_perp_min,
          long_perp_angle,
          long_parr,
          shear_parr,
          shear_perp,
-         shear_perp_angle,) = cut_params(axis, angle)
+         shear_perp_angle,) = cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor)
 
         print(f"|        Long Parr:%8.2f pm/V" % (long_parr * 1e12))
         print(f"|    Long Perp Max:%8.2f pm/V" % (long_perp_max * 1e12))
@@ -78,8 +78,6 @@ def main():
         print(f"| Shear Perp Angle:%8.2f°" % (shear_perp_angle * 180 / np.pi))
         print()
 
-    rotor = rotors[(axis-1) % 3]
-    _, _, long_perp_rotor = cut_characteristics(rotor(angle), axis)
     Xs = np.linspace(0, 2*np.pi, 1000)
     plt.plot(Xs, long_perp_rotor(Xs))
     plt.show()
