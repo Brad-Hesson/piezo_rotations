@@ -48,6 +48,7 @@ def main():
         ("Y", 128),
         ("Z", 0),
     ]
+    from materials.lithium_niobate import d
     for (axis_name, angle) in cuts:
         axis = axes_ind[axis_name]
         rotor = rotors[(axis-1) % 3]
@@ -56,7 +57,6 @@ def main():
         print(f"%d° %s-Cut:" % (angle/np.pi*180, axis_name))
 
         
-        from lib.lithium_niobate import d
         (shear_vec,
          long_parr,
          long_perp_rotor) = cut_characteristics(d, rotor(angle), axis)
