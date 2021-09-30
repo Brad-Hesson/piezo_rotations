@@ -5,12 +5,12 @@ from lib.transformations import *
 from lib.lithium_niobate import d
 
 
-def cut_characteristics(transform, axis):
+def cut_characteristics(d_matrix, transform, axis):
     assert transform.shape == (3, 3)
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
     # strain = N(A) * d' * A' * E
-    strain = N(transform) @ np.transpose(d) @ np.transpose(transform) @ E
+    strain = N(transform) @ np.transpose(d_matrix) @ np.transpose(transform) @ E
     strain = np.array(strain, dtype=np.float64)
     shear_vec = strain[3:]
     long_parr = strain[axis]
@@ -60,7 +60,7 @@ def main():
 
         (shear_vec,
          long_parr,
-         long_perp_rotor) = cut_characteristics(rotor(angle), axis)
+         long_perp_rotor) = cut_characteristics(d, rotor(angle), axis)
         (long_perp_max,
          long_perp_min,
          long_perp_angle,
