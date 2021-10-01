@@ -8,6 +8,8 @@ def cut_characteristics(d_matrix, transform, axis):
     assert transform.shape == (3, 3)
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
+    # A': Cut Basis     -> Crystal Basis
+    # A : Crystal Basis -> Cut Basis
     # strain = N(A) * d' * A' * E
     strain = N(transform) @ np.transpose(d_matrix) @ np.transpose(transform) @ E
     strain = np.array(strain, dtype=np.float64)
@@ -23,11 +25,11 @@ def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
     E[axis] = 1
 
     shear_parr = np.dot(E, shear_vec)
-    shear_perp = np.linalg.norm(np.cross(E, shear_vec))
-    indeces = [(axis-1) % 3, (axis-2) % 3]
-    shear_perp_angle = np.arctan2(*np.cross(E, shear_vec)[indeces])
+    shear_perp = np.linalg.norm(shear_vec - shear_parr)
+    indeces = [(axis-2) % 3, (axis-1) % 3]
+    shear_perp_angle = np.arctan2(*shear_vec[indeces])
     shear_perp_angle = shear_perp_angle if abs(
-        shear_perp_angle) <= 90 else shear_perp_angle % 360-180
+        shear_perp_angle) <= np.pi/2 else shear_perp_angle % (2*np.pi)-np.pi
 
     Xs = np.linspace(0, 2*np.pi, 1000)
     long_perp_max_angle = Xs[np.argmax(np.abs(long_perp_rotor(Xs)))]
@@ -56,7 +58,6 @@ def main():
 
         print(f"%d° %s-Cut:" % (angle/np.pi*180, axis_name))
 
-        
         (shear_vec,
          long_parr,
          long_perp_rotor) = cut_characteristics(d, rotor(angle), axis)
