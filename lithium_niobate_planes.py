@@ -67,17 +67,17 @@ def main():
 
     rotor = rotors[(axis-1)%3]
     transform = rotor(angle/180*np.pi)
-    shear_vec, _, _ = cut_characteristics(d, transform, axis)
+    shear_cutb, _, _ = cut_characteristics(d, transform, axis)
 
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
+    shear_parr_cutb = np.dot(E, shear_cutb) * E
+    shear_perp_cutb = shear_cutb - shear_parr_cutb
+    shear_perp_crystalb = np.transpose(transform) @ shear_perp_cutb
+    shear_perp_crystalb = CVec(*shear_perp_crystalb)
+    shear_perp_latticeb = cart_to_lattice(shear_perp_crystalb)
 
-    shear_perp_vec = shear_vec - np.dot(E, shear_vec)
-    shear_perp_vec = np.transpose(transform) @ shear_perp_vec
-    shear_perp = CVec(*shear_perp_vec)
-    shear_lattice_direction = cart_to_lattice(shear_perp)
-
-    lattice_vector, err = find_close_lattice_point(shear_lattice_direction, 100)
+    lattice_vector, err = find_close_lattice_point(shear_perp_latticeb, 100)
     lattice_plane, _ = find_close_lattice_point(lattice_vector.inverted(), 1000)
 
     print(" Lattice Vector:", lattice_vector, "+-", err)
