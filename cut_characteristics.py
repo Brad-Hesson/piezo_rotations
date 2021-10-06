@@ -41,6 +41,9 @@ def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
 
 def main():
     axes_ind = {"X": 0, "Y": 1, "Z": 2}
+    # Add cuts to the list below to get their parameters.  The
+    # final cut in the list will have it's longitudinal
+    # perpendicular function plotted.
     cuts = [
         ("X", 0),
         ("Y", 0),
@@ -69,13 +72,13 @@ def main():
          shear_perp,
          shear_perp_angle,) = cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor)
 
-        print(f"|        Long Parr:%8.2f pm/V" % (long_parr * 1e12))
-        print(f"|    Long Perp Max:%8.2f pm/V" % (long_perp_max * 1e12))
-        print(f"|    Long Perp Min:%8.2f pm/V" % (long_perp_min * 1e12))
-        print(f"|  Long Perp Angle:%8.2f°" % (long_perp_angle * 180 / np.pi))
-        print(f"|       Shear Parr:%8.2f pm/V" % (shear_parr * 1e12))
-        print(f"|       Shear Perp:%8.2f pm/V" % (shear_perp * 1e12))
-        print(f"| Shear Perp Angle:%8.2f°" % (shear_perp_angle * 180 / np.pi))
+        print(f"|            Longitudinal Parallel:%8.2f pm/V" % (long_parr * 1e12))
+        print(f"|   Longitudinal Perpendicular Max:%8.2f pm/V" % (long_perp_max * 1e12))
+        print(f"|   Longitudinal Perpendicular Min:%8.2f pm/V" % (long_perp_min * 1e12))
+        print(f"| Longitudinal Perpendicular Angle:%8.2f°" % (long_perp_angle * 180 / np.pi))
+        print(f"|                   Shear Parallel:%8.2f pm/V" % (shear_parr * 1e12))
+        print(f"|              Shear Perpendicular:%8.2f pm/V" % (shear_perp * 1e12))
+        print(f"|        Shear Perpendicular Angle:%8.2f°" % (shear_perp_angle * 180 / np.pi))
         print()
 
     Xs = np.linspace(0, 2*np.pi, 1000)
