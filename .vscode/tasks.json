@@ -6,7 +6,7 @@
         {
             "label": "Run Python File",
             "type": "process",
-            "command": "C:/Python39/python.exe",
+            "command": "python",
             "args": [
                 "${file}",
             ],
