@@ -4,7 +4,7 @@ from matplotlib import pyplot as plt
 from lib.transformations import *
 
 
-def cut_characteristics(d_matrix, transform, axis):
+def cut_characteristics(d_matrix: np.ndarray, transform: np.ndarray, axis: int) -> tuple:
     assert transform.shape == (3, 3)
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
@@ -16,11 +16,11 @@ def cut_characteristics(d_matrix, transform, axis):
     shear_vec = strain[3:]
     long_parr = strain[axis]
     rotor = rotors[axis]
-    def long_perp_rotor(x): return (N(rotor(x)) @ strain)[(axis-1) % 3]
+    def long_perp_rotor(x: float): return (N(rotor(x)) @ strain)[(axis-1) % 3]
     return (shear_vec, long_parr, long_perp_rotor)
 
 
-def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
+def cut_params(axis: int, angle: float, shear_vec: np.ndarray, long_parr: float, long_perp_rotor) -> tuple:
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
 
@@ -39,7 +39,7 @@ def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
     return (long_parr, long_perp_max, long_perp_min, long_perp_max_angle, shear_parr, shear_perp, shear_perp_angle)
 
 
-def main():
+def main() -> None:
     axes_ind = {"X": 0, "Y": 1, "Z": 2}
     # Add cuts to the list below to get their parameters.  The
     # final cut in the list will have it's longitudinal
@@ -72,6 +72,9 @@ def main():
          shear_perp,
          shear_perp_angle,) = cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor)
 
+        print("%.4e" % shear_vec[0])
+        print("%.4e" % shear_vec[1])
+        print("%.4e" % shear_vec[2])
         print(f"|            Longitudinal Parallel:%8.2f pm/V" % (long_parr * 1e12))
         print(f"|   Longitudinal Perpendicular Max:%8.2f pm/V" % (long_perp_max * 1e12))
         print(f"|   Longitudinal Perpendicular Min:%8.2f pm/V" % (long_perp_min * 1e12))

@@ -1,7 +1,7 @@
 import numpy as np
 
 
-def N(a):
+def N(a: np.ndarray) -> np.ndarray:
     assert(a.shape == (3, 3))
     s0r = [[0, 0, 0], [1, 1, 1], [2, 2, 2]]
     s1r = [[2, 2, 2], [0, 0, 0], [1, 1, 1]]
@@ -16,15 +16,15 @@ def N(a):
     return np.vstack([np.hstack([na11, na12]), np.hstack([na21, na22])])
 
 
-def Ax(t):
+def Ax(t: float) -> np.ndarray:
     return np.array([[1, 0, 0], [0, np.cos(t), np.sin(t)], [0, -np.sin(t), np.cos(t)]], dtype=object)
 
 
-def Ay(t):
+def Ay(t: float) -> np.ndarray:
     return np.array([[np.cos(t), 0, np.sin(t)], [0, 1, 0], [-np.sin(t), 0, np.cos(t)]], dtype=object)
 
 
-def Az(t):
+def Az(t: float) -> np.ndarray:
     return np.array([[np.cos(t), np.sin(t), 0], [-np.sin(t), np.cos(t), 0], [0, 0, 1]], dtype=object)
 
 rotors = [Ax, Ay, Az]

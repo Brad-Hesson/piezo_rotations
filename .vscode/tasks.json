@@ -6,7 +6,7 @@
         {
             "label": "Run Python File",
             "type": "process",
-            "command": "C:/Python39/python.exe",
+            "command": "python",
             "args": [
                 "${file}",
             ],
@@ -29,6 +29,8 @@
             "type": "process",
             "command": "mypy",
             "args": [
+                "--disallow-untyped-calls",
+                "--disallow-untyped-defs",
                 "${file}",
             ],
             "problemMatcher": [],
