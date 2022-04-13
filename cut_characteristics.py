@@ -3,16 +3,41 @@ from matplotlib import pyplot as plt
 
 from lib.transformations import *
 
-
-def cut_characteristics(d_matrix: np.ndarray, transform: np.ndarray, axis: int) -> tuple:
+# This function takes
+# `d_matrix`: the matrix of piezoelectric coefficients for the material in question
+# `transform`: the 3d rotation that represents the cutting plane of the crystal
+# `axis`: the axis across which the electric field would be applied
+# 
+# it returns
+# `shear_vec`: a vector of the shear response
+# `long_parr`: how much the crystal expands (or contracts if negative) in the axis parallel to the applied electric field 
+# `long_perp_rotor`: a function that tells you how much the crystal expands (or contracts if negative) perpendicular to the
+#   applied electric field at any given angle about that axis
+# 
+def cut_characteristics(d_matrix, transform, axis):
+    # throw an error if the transform is not the correct shape
     assert transform.shape == (3, 3)
+    # create the electric field vector based on the given `axis` variable
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
-    # A': Cut Basis     -> Crystal Basis
-    # A : Crystal Basis -> Cut Basis
-    # strain = N(A) * d' * A' * E
+    # here `A` is the given `transform` variable which is the rotation matrix
+    # multiplying on the left by `A` converts from the crystal basis to the cut basis
+    # multiplying on the left by `A'` (the transpose or inverse of `A`) converts from the cut basis to the crystal basis
+    # `@` is matrix multiplication
+    # d_t = A @ d @ N(A)' 
+    # d_t' = N(A) @ d' @ A'
+    # strain = d_t' @ E
+    # strain = N(A) @ d' @ A' @ E
+    # see `2. Theoretical Background` in `papers/LiNbO3 Orientation Dependence.pdf`
     strain = N(transform) @ np.transpose(d_matrix) @ np.transpose(transform) @ E
     strain = np.array(strain, dtype=np.float64)
+    # `strain` is now a 6-vector representing the strain matrix of the cut crystal as follows
+    # |s1 s6 s5|
+    # |s6 s2 s4|
+    # |s5 s4 s3|
+    # `shear_vec` is |s4 s5 s6|
+    # `long_parr` is s[axis]
+    # `rotor` is a function that gives information on the perpendicular component of the longitudinal motion
     shear_vec = strain[3:]
     long_parr = strain[axis]
     rotor = rotors[axis]
@@ -20,7 +45,16 @@ def cut_characteristics(d_matrix: np.ndarray, transform: np.ndarray, axis: int) 
     return (shear_vec, long_parr, long_perp_rotor)
 
 
-def cut_params(axis: int, angle: float, shear_vec: np.ndarray, long_parr: float, long_perp_rotor) -> tuple:
+# this function takes in the information from `cut_characteristics` and returns more fine
+# grained information.
+#           `long_parr`: the longitudinal motion perpendicular to the cutting plane
+#       `long_perp_max`: the maximum signed longitudinal motion in the cutting plane
+#       `long_perp_min`: the minimum signed longitudinal motion in the cutting plane
+# `long_perp_max_angle`: the angle of the maximum longitudial motion in the cutting plane
+#          `shear_parr`: the shear motion around the axis perpendicular to the cutting plane
+#          `shear_perp`: the shear motion about an axis in the cutting plane
+#    `shear_perp_angle`: the angle of the perpendicular shear axis in the cutting plane
+def cut_params(axis, angle, shear_vec, long_parr, long_perp_rotor):
     E = np.transpose(np.array([0, 0, 0]))
     E[axis] = 1
 
@@ -39,7 +73,9 @@ def cut_params(axis: int, angle: float, shear_vec: np.ndarray, long_parr: float,
     return (long_parr, long_perp_max, long_perp_min, long_perp_max_angle, shear_parr, shear_perp, shear_perp_angle)
 
 
-def main() -> None:
+# takes a bunch of common lithium niobate cuts and calculates their parameters of motion
+# using the functions above
+def main():
     axes_ind = {"X": 0, "Y": 1, "Z": 2}
     # Add cuts to the list below to get their parameters.  The
     # final cut in the list will have it's longitudinal
