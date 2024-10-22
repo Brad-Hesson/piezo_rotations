@@ -16,6 +16,8 @@
           (pkgs.python3.withPackages (ps: [
             ps.matplotlib
             ps.numpy
+            ps.scikit-image
+            ps.plotly
           ]))
         ];
       };
